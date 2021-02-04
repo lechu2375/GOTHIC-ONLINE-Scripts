@@ -5,7 +5,7 @@ local DRAW_TABLE = [];
 addEventHandler("onPacket", function(packet)
 {
 	local id = packet.readUInt16();
-    Chat.print(255, 255, 0,id);
+    //Chat.print(255, 255, 0,id);
 	if (id == UPDATE_DRAWS)
 	{
         local x = packet.readInt32();
@@ -26,13 +26,13 @@ addEventHandler("onPacket", function(packet)
 	}
     if (id == REMOVE_DRAW)
 	{
-        Chat.print(255, 255, 0,"mhm");
+        //Chat.print(255, 255, 0,"mhm");
         local x = packet.readInt32();
         local text = packet.readString();
         foreach (id, draw in DRAW_TABLE) {
             local dtext = draw.getText()[1];
             local dpos = draw.getWorldPosition();
-            Chat.print(255, 0, 0,"s"+dtext);
+            //Chat.print(255, 0, 0,"s"+dtext);
             if(dtext==text && dpos.x==x){
                 draw.visible = false;
                 
@@ -42,23 +42,7 @@ addEventHandler("onPacket", function(packet)
 });
 
 
-function DrawHuj(cmd,params)
-{
-    Chat.print(255, 255, 0,cmd);
-	if (cmd == "getdraws"){
-        local localPlayerPos = getPlayerPosition(heroId);
-        foreach (id, draw in DRAW_TABLE) {
-            local posTable = draw.getWorldPosition();
-            Chat.print(255, 255, 0,"ID Drawu:"+id+"Dystans od gracza:"+getDistance3d(posTable.x,posTable.y,posTable.z,localPlayerPos.x,localPlayerPos.y,localPlayerPos.z));
-            Chat.print(255, 255, 0,"Tekst:"+draw.getText()[1]);
-        }
-	}
-    
 
-	
-}
-
-addEventHandler("onCommand", DrawHuj);
 
 
 
