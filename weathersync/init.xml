@@ -1,0 +1,6 @@
+<server>
+<script src="sh_core.nut" type="client" />
+<script src="sh_core.nut" type="server" />
+<script src="cl_core.nut" type="client" />
+<script src="sv_core.nut" type="server" />
+</server>
