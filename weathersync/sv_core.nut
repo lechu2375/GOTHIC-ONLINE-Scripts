@@ -19,8 +19,8 @@ addEventHandler("onPlayerCommand",function(pid,cmd,params)
                 ChangeWeather(WEATHER_RAIN);
                 CreateWeatherTimer(WeatherSync.rainDur);
                 setTimerInterval(WeatherSync.weatherTimer, WeatherSync.weatherRandom);
-                /*po samym zmianie interwa³u chuja siê dzia³o
-                    i usuwa³o szybko deszcz wiêc to takie obejœcie*/
+                /*po samym zmianie interwaÂ³u chuja siÃª dziaÂ³o
+                    i usuwaÂ³o szybko deszcz wiÃªc to takie obejÅ“cie*/
             }
         }
         else
@@ -33,8 +33,8 @@ addEventHandler("onPlayerCommand",function(pid,cmd,params)
 
 WeatherSync <- {
     rainChance = 5 //procentowa szansa na deszcz 
-    currentWeather = WEATHER_CLEAR //startowa pogoda mo¿liwoœci: WEATHER_CLEAR, WEATHER_RAIN, WEATHER_SNOW(XD)
-    rainDur = 600000//10 minut deszcz,musi byæ odpowiednio d³ugi ¿eby zaczê³o laæ
+    currentWeather = WEATHER_CLEAR //startowa pogoda moÂ¿liwoÅ“ci: WEATHER_CLEAR, WEATHER_RAIN, WEATHER_SNOW(XD)
+    rainDur = 600000//10 minut deszcz,musi byÃ¦ odpowiednio dÂ³ugi Â¿eby zaczÃªÂ³o laÃ¦
     weatherTimer = 0 //id timera
     weatherRandom = 60000 // 1 minuta - co ile losuje pogode
 }
@@ -60,7 +60,7 @@ function CreateWeatherTimer(delay){
 
     WeatherSync.weatherTimer = setTimer(function()
     {
-        local random = 100 * rand() / RAND_MAX;
+        local random = 1.0 * 100 * rand() / RAND_MAX;
         if(random>WeatherSync.rainChance){
             //print("clear")
             WeatherSync.currentWeather = WEATHER_CLEAR;
@@ -94,7 +94,7 @@ function onPlayerJoin(pid)
         packet.writeUInt16(RainPacket);
         packet.writeChar(WeatherSync.currentWeather);
         packet.send(pid,RELIABLE_ORDERED);
-    }, 5000, 1); //coœ mi nie zmienia³o pogody po zrespieniu pierwszym wiêc timer taki o
+    }, 5000, 1); //coÅ“ mi nie zmieniaÂ³o pogody po zrespieniu pierwszym wiÃªc timer taki o
 
 }
 
