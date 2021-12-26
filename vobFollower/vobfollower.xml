@@ -1,0 +1,14 @@
+<server>
+	<script src="sh_packet.nut" type="client" />
+	<script src="sh_packet.nut" type="server" />
+
+	<script src="sv_core.nut" type="server" />
+	<script src="sv_events.nut" type="server" />
+	
+	<!-- Client side -->
+	<script src="cl_core.nut" type="client" />
+	<script src="cl_networking.nut" type="client" />
+	<!-- Server side -->
+	
+
+</server>
