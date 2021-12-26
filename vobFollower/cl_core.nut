@@ -166,9 +166,9 @@ function RemoveVobParent(id)
 
 addEventHandler("onCommand",function(cmd, params)
 {
-	if(cmd == "vob") // if player types "vob" command, then..
+	if(cmd == "test" || (params =="odloz" || params =="podnies") ) // if player types "vob" command, then..
 	{
-        CreateVobFollower("OC_SAECKE_01.3DS",heroId);
+        playAni(heroId,"T_PLUNDER")
 
 	};
     if(cmd == "wozek") // if player types "vob" command, then..

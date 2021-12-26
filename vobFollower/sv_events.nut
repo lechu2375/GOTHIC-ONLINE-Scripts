@@ -17,11 +17,34 @@ local function disconnectHandle(pid)
     }
 }
 addEventHandler("onPlayerDisconnect", joinHandle);
-
-local function testCmd(cmd,params)
+local vobID;
+local function testCmd(pid,cmd,params)
 {
-    
+    if(cmd=="test")
+    {
+        
+        if(params=="podnies")
+        {
+            
+            print("Timer start")
+            local id = setTimer(function()
+            {
+                print("TIIIMER")
+                vobID = CreateVobFollower("OC_SACK_V03.3DS",pid);
+                applyPlayerOverlay(pid, Mds.id("HUMANS_CARRYBARREL.MDS"))
+            },3000,1)
+
+
+            
+        }
+        if(params=="odloz")
+        {
+            SetVobFollowerParent(vobID,-1);
+            removePlayerOverlay(pid, Mds.id("HUMANS_CARRYBARREL.MDS"))
+            
+        }        
+    }
 }
 
 
-addEventHandler("onCommand", testCmd);
+addEventHandler("onPlayerCommand", testCmd);
