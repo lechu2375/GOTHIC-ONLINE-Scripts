@@ -7,7 +7,7 @@
 > UpdateVobFollower(int id, enum VobFollowerAction,int pid) 
 
 ## enum VobFollowerAction
--REMOVE Usuwa vobFollowera
--PARENTUPDATE Zmienia parenta
--WHOLEUPDATE Aktualizuje wszystko, od parenta po gracza, można użyć do wysłania listy vobFollowerów po wejściu na serwis 
+- REMOVE Usuwa vobFollowera
+- PARENTUPDATE Zmienia parenta
+- WHOLEUPDATE Aktualizuje wszystko, od parenta po gracza, można użyć do wysłania listy vobFollowerów po wejściu na serwis 
 
