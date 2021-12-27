@@ -1,16 +1,16 @@
-const REQUEST_DESC = 2123;
+
 vobTable <- {};
 local offsetTable = {};
 
 offsetTable["ITMI_GOLDCANDLEHOLDER.3DS"] <- 
 {
-    posOffset = { x = 0, y=0, z=0},//x lewo prawo ,y gora dó³, z przód ty³
+    posOffset = { x = 0, y=0, z=0},//x lewo prawo ,y gora dï¿½, z przï¿½d tyï¿½
     angleOffset = {x = 0 , y = 0, z = 0}
 }
 offsetTable["NC_LOB_LOG1.3DS"] <- 
 {
     posOffset = { x = 0, y=0, z=30},
-    angleOffset = {x = 0 , y = 0, z = 0} // yaw wokó³ osi gracz
+    angleOffset = {x = 0 , y = 0, z = 0} // yaw wokï¿½ osi gracz
 }
 offsetTable["OC_SACK_V03.3DS"] <- //worek
 {
@@ -65,7 +65,7 @@ function CreateVobFollower(vobVisual,playerID,vobID)
 local function UpdateVobFollowerPos()
 {
     local currentPosition //obecna pozycja gracza
-    local pAngle //obecny obrót
+    local pAngle //obecny obrï¿½t
     local angle // radiany
     local scale //skala (potem dodam wsparcie xd)
     local direction 
@@ -75,8 +75,8 @@ local function UpdateVobFollowerPos()
     {
         playerID = table.pid
 
-        if(playerID==-1) 
-        continue;
+        if(playerID<0) 
+            continue;
 
         vob = table.vob
         pAngle = getPlayerAngle(playerID)
@@ -108,14 +108,20 @@ local function UpdateVobFollowerPos()
 
 function ChangeVisualForVobFollower(vobID,visual)
 {
-    if(id in vobTable)
-        vobTable[id].vob.visual = visual 
+    if(vobID in vobTable)
+        vobTable[vobID].vob.visual = visual 
 }
 
 function ChangeParentForVobFollower(vobID,parent)
 {
-    if(id in vobTable)
-        vobTable[id].pid = parent 
+
+    if(vobID in vobTable)
+    {
+        print("CPFVF"+parent)
+        vobTable[vobID].pid = parent;
+        vobTable[vobID].vob.floor();
+    }
+        
 }
 
 function RemoveVobFollowerWithID(id)
@@ -148,7 +154,7 @@ function RemoveVobWithVisualFor(pid,visual)
         {
             table.vob.removeFromWorld()
             table.vob = null
-            delete vobTable[index] //mog¹ byæ dwie kopie, na razie to nie ma sensu bo ten sam offset ale mo¿e w przysz³oœæi tego breaka mozna wyjebac
+            delete vobTable[index] //mogï¿½ byï¿½ dwie kopie, na razie to nie ma sensu bo ten sam offset ale moï¿½e w przyszï¿½oï¿½ï¿½i tego breaka mozna wyjebac
             
         }
 
@@ -168,7 +174,11 @@ addEventHandler("onCommand",function(cmd, params)
 {
 	if(cmd == "test" || (params =="odloz" || params =="podnies") ) // if player types "vob" command, then..
 	{
-        playAni(heroId,"T_PLUNDER")
+        local id = setTimer(function()
+        {
+            playAni(heroId,"T_PLUNDER")
+        },50,1)
+        
 
 	};
     if(cmd == "wozek") // if player types "vob" command, then..

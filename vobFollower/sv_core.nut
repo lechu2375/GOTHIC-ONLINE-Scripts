@@ -29,6 +29,7 @@ function CreateVobFollower(vobVisual,playerID)
 
 function SetVobFollowerParent(vobID,parent) //-1 zostaje w powietrzu
 {
+    print("parent change")
     vobTable[vobID].pid = parent
     //UpdateVobFollower(index, VobFollowerAction.WHOLEUPDATE,-1)
     UpdateVobFollower(vobID, VobFollowerAction.PARENTUPDATE,-1)
@@ -36,6 +37,7 @@ function SetVobFollowerParent(vobID,parent) //-1 zostaje w powietrzu
 
 function UpdateVobFollower(id, action,pid) //pid -1 = leci na broadcast, reszta dla konkretnego ludzika
 {
+
     switch(action)
     {
         case VobFollowerAction.WHOLEUPDATE:
@@ -53,6 +55,8 @@ function UpdateVobFollower(id, action,pid) //pid -1 = leci na broadcast, reszta 
                 packet.sendToAll(RELIABLE)
             else
                 packet.send(pid,RELIABLE)
+
+
             break;
         }
         case VobFollowerAction.PARENTUPDATE:
@@ -65,10 +69,13 @@ function UpdateVobFollower(id, action,pid) //pid -1 = leci na broadcast, reszta 
                 packet.writeUInt8(getMaxSlots()+1);
             else
                 packet.writeUInt8(vobTable.pid); //id gracza rodzina parenta kurwa
+
             if(pid==-1)
                 packet.sendToAll(RELIABLE)
             else
                 packet.send(pid,RELIABLE)
+
+
             break;            
         }
         case VobFollowerAction.REMOVE: //wysyłka id do usuniecia

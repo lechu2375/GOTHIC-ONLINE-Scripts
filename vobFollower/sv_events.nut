@@ -26,7 +26,7 @@ local function testCmd(pid,cmd,params)
         if(params=="podnies")
         {
             
-            print("Timer start")
+
             local id = setTimer(function()
             {
                 print("TIIIMER")
@@ -39,6 +39,7 @@ local function testCmd(pid,cmd,params)
         }
         if(params=="odloz")
         {
+
             SetVobFollowerParent(vobID,-1);
             removePlayerOverlay(pid, Mds.id("HUMANS_CARRYBARREL.MDS"))
             
