@@ -1,9 +1,9 @@
-## Tworzenie nowego vob followera 
+## Creating new vobFollower, returns id of vobFollower. 
 > CreateVobFollower(string vobVisual, int playerID)
-## Zmiana parenta vobFollowera 
+## Change parent for vobFollower
 > SetVobFollowerParent(int vobID, int parent) 
 - w przypadku -1 vob zostaje w "powietrzu"
-## Aktualizacja informacji o vobFollowerze 
+## Update infotmation about vobFollower.
 > UpdateVobFollower(int id, enum VobFollowerAction,int pid) 
 
 ## enum VobFollowerAction
