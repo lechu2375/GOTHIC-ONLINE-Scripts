@@ -43,7 +43,8 @@ function CreateVobFollower(vobVisual,playerID,vobID)
     vob.cdDynamic = false;
     local currentPosition
     local currentRotation
-    if(!playerID)
+
+    if(!playerID) //Jak ktoœ potrzebuje to mo¿e lokalnego voba stworzyæ.
         playerID = heroId;
     
     currentPosition = getPlayerPosition(playerID); 
@@ -114,14 +115,11 @@ function ChangeVisualForVobFollower(vobID,visual)
 
 function ChangeParentForVobFollower(vobID,parent)
 {
-
     if(vobID in vobTable)
     {
-        print("CPFVF"+parent)
         vobTable[vobID].pid = parent;
         vobTable[vobID].vob.floor();
-    }
-        
+    }     
 }
 
 function RemoveVobFollowerWithID(id)
@@ -169,7 +167,7 @@ function RemoveVobParent(id)
     }
 }
 
-
+/*Example
 addEventHandler("onCommand",function(cmd, params)
 {
 	if(cmd == "test" || (params =="odloz" || params =="podnies") ) // if player types "vob" command, then..
@@ -198,7 +196,7 @@ addEventHandler("onCommand",function(cmd, params)
     }
 
 
-});
+}); */
 
 
 

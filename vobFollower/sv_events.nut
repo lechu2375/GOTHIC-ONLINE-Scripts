@@ -1,4 +1,4 @@
-local function joinHandle(pid)
+local function JoinHandle(pid)
 {
     foreach(index,_ in vobTable)
     {
@@ -6,20 +6,21 @@ local function joinHandle(pid)
     }
 }
 
-addEventHandler("onPlayerJoin", joinHandle);
+addEventHandler("onPlayerJoin", JoinHandle);
 
-local function disconnectHandle(pid)
+local function DisconnectHandle(pid)
 {
     foreach(index,table in vobTable)
     {
        if(table.pid == pid)
-        UpdateVobFollower(index, VobFollowerAction.REMOVE,-1)
+            UpdateVobFollower(index, VobFollowerAction.REMOVE,-1)
     }
 }
-addEventHandler("onPlayerDisconnect", disconnectHandle);
+addEventHandler("onPlayerDisconnect", DisconnectHandle);
 
 
 
+/*Example of usage
 
 local vobID;
 local function testCmd(pid,cmd,params)
@@ -53,3 +54,5 @@ local function testCmd(pid,cmd,params)
 
 
 addEventHandler("onPlayerCommand", testCmd);
+
+*/
