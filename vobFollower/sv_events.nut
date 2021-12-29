@@ -16,7 +16,11 @@ local function disconnectHandle(pid)
         UpdateVobFollower(index, VobFollowerAction.REMOVE,-1)
     }
 }
-addEventHandler("onPlayerDisconnect", joinHandle);
+addEventHandler("onPlayerDisconnect", disconnectHandle);
+
+
+
+
 local vobID;
 local function testCmd(pid,cmd,params)
 {
