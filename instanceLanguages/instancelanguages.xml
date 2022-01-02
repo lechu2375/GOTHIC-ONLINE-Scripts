@@ -1,0 +1,9 @@
+<server>
+
+	<!-- Client side -->
+	<script src="sv_languageHandler.nut" type="server" />
+
+	<!-- Server side -->
+	
+
+</server>
