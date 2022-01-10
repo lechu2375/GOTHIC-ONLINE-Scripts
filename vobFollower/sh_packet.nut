@@ -2,6 +2,8 @@ enum PacketId
 {
     VobFollowerREMOVE,
     VobFollowerPARENTUPDATE,
-    VobFollowerWHOLEUPDATE
-
+    VobFollowerWHOLEUPDATE,
+    vobPickupableRemove,
+    vobPickupableRequest,
+    vobPickupableUpdate,
 }

@@ -1,0 +1,15 @@
+<server>
+
+	<script src="sh_packetid.nut" type="client" />
+	<script src="sh_packetid.nut" type="server" />
+
+	<script src="sv_class.nut" type="server" />
+	<script src="sv_networking.nut" type="server" />
+
+	<script src="cl_class.nut" type="client" />
+	<script src="cl_event.nut" type="client" />
+
+
+	
+
+</server>

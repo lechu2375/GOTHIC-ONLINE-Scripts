@@ -74,7 +74,8 @@ function UpdateVobFollower(id, action,pid) //pid -1 = leci na broadcast, reszta 
         case VobFollowerAction.REMOVE: //wysyłka id do usuniecia
         {
 
-            local vobTable = vobTable[id];
+
+
             local packet = Packet();
             packet.writeUInt8(PacketId.VobFollowerREMOVE);
             packet.writeUInt8(id); 
@@ -84,7 +85,12 @@ function UpdateVobFollower(id, action,pid) //pid -1 = leci na broadcast, reszta 
             else
                 packet.send(pid,RELIABLE)
 
-            delete vobTable[id]
+            if(id in vobTable)
+                delete vobTable[id]
+
+                
+                
+            
             break;
         }
     }
